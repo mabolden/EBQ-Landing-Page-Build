@@ -26,16 +26,20 @@ body {
 	border: 0;
 }
 
-.page-container {
+.container {
+	box-sizing: border-box;
 	max-width: 90rem;
 	margin: 0 auto;
 }
 
 header {
+	background-color: var(--light-blue);
+}
+
+header .container {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	background-color: var(--light-blue);
 	padding: 1.5rem 5rem;
 }
 
@@ -66,6 +70,9 @@ header .contact-btn {
 
 .hero {
 	background-color: var(--light-blue);
+}
+
+.hero .container {
 	padding: 6.375rem 0 6.25rem 9.625rem;
 }
 
@@ -152,6 +159,9 @@ header .contact-btn {
 
 .cta {
 	background-color: var(--dark-blue);
+}
+
+.cta .container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -256,7 +266,7 @@ header .contact-btn {
 }
 
 @media (max-width: 768px) {
-	header {
+	header .container {
 		padding: 1rem 1.25rem;
 	}
 
@@ -270,7 +280,7 @@ header .contact-btn {
 		font-size: 0.75rem;
 	}
 
-	.hero {
+	.hero .container {
 		padding: 3rem 1.5rem;
 		text-align: center;
 	}
@@ -340,8 +350,7 @@ header .contact-btn {
 		max-width: 16.25rem;
 	}
 
-	.cta {
-		height: auto;
+	.cta .container {
 		padding: 3rem 1.5rem;
 		gap: 1.5rem;
 	}
