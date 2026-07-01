@@ -1,0 +1,358 @@
+/******* LANDING PAGE STYLES *******/
+
+:root {
+	--white: #FFFFFF;
+	--light-blue: #EBF4FF;
+	--black: #000000;
+	--dark-blue: #0A459E;
+	--header-blue: #2979EC;
+	--yellow: #FFBE3C;
+}
+
+body {
+	margin: 0;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+.page-container {
+	max-width: 90rem;
+	margin: 0 auto;
+}
+
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: var(--light-blue);
+	padding: 1.5rem 5rem;
+}
+
+header img {
+	width: 6.625rem;
+	height: 6.625rem;
+}
+
+.logo-button {
+	background: none;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+}
+
+header .contact-btn {
+	padding: 0.625rem 1.5rem;
+	background-color: var(--header-blue);
+	color: var(--white);
+	border: none;
+	border-radius: 999px;
+	font-family: inherit;
+	font-weight: bold;
+	font-size: 0.9375rem;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+.hero {
+	background-color: var(--light-blue);
+	padding: 6.375rem 0 6.25rem 9.625rem;
+}
+
+.hero h1 {
+	max-width: 35.3125rem;
+	font-weight: 400;
+}
+
+.hero h1 strong {
+	font-weight: 700;
+}
+
+.hero p {
+	max-width: 32.5625rem;
+	margin-top: 0;
+	font-size: 1.25rem;
+	line-height: 1.5625rem;
+}
+
+.tools,
+.team {
+	display: flex;
+	align-items: flex-start;
+	gap: 4rem;
+	padding: 7.125rem 9.625rem 5rem;
+}
+
+.team {
+	padding-top: 1.3125rem;
+	padding-bottom: 5.625rem;
+}
+
+.tools-text,
+.team-text {
+	max-width: 32.5rem;
+}
+
+.team-text {
+	margin-top: 1.4375rem;
+}
+
+.tools-image,
+.team-image {
+	flex: 1;
+}
+
+.tools-image img {
+	width: 36.125rem;
+	height: auto;
+}
+
+.team-image {
+	flex: none;
+	width: 31.25rem;
+}
+
+.team-image img {
+	width: 100%;
+	height: auto;
+}
+
+.tools h2,
+.team h2 {
+	font-weight: 400;
+	font-size: 2rem;
+	margin: 0 0 1rem;
+}
+
+.tools h2 strong,
+.team h2 strong {
+	font-weight: 700;
+}
+
+.tools p,
+.team p {
+	font-size: 1.25rem;
+	line-height: 1.5625rem;
+	margin: 0;
+}
+
+.team p + p {
+	margin-top: 1rem;
+}
+
+.cta {
+	background-color: var(--dark-blue);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 6.0625rem 0 5.8125rem;
+	gap: 3.5rem;
+	text-align: center;
+}
+
+.cta h2 {
+	max-width: 62.5rem;
+	margin: 0;
+	color: var(--white);
+	font-size: 2.625rem;
+	line-height: 4.375rem;
+	font-weight: 400;
+}
+
+.cta h2 strong {
+	font-weight: 700;
+}
+
+.cta .contact-btn {
+	background-color: var(--yellow);
+	color: var(--dark-blue);
+	border: none;
+	border-radius: 999px;
+	padding: 0.625rem 1.5rem;
+	font-family: inherit;
+	font-weight: bold;
+	font-size: 0.9375rem;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+.modal-overlay {
+	display: none;
+	position: fixed;
+	inset: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	align-items: center;
+	justify-content: center;
+	z-index: 100;
+}
+
+.modal-overlay.active {
+	display: flex;
+}
+
+.modal {
+	position: relative;
+	background-color: var(--light-blue);
+	padding: 2.5rem;
+	border-radius: 0.5rem;
+	width: 22.5rem;
+	max-width: 90%;
+}
+
+.modal h2 {
+	margin: 0 0 1.25rem;
+	color: var(--dark-blue);
+}
+
+.modal form {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+.modal input {
+	padding: 0.625rem 1rem;
+	border: none;
+	border-radius: 999px;
+	background-color: var(--white);
+	font-family: inherit;
+	font-size: 0.875rem;
+}
+
+.modal button[type="submit"] {
+	margin-top: 0.5rem;
+	padding: 0.625rem 1.5rem;
+	background-color: var(--header-blue);
+	color: var(--white);
+	border: none;
+	border-radius: 999px;
+	font-family: inherit;
+	font-weight: bold;
+	font-size: 0.9375rem;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+.modal-close {
+	position: absolute;
+	top: 0.75rem;
+	right: 1rem;
+	background: none;
+	border: none;
+	font-size: 1.5rem;
+	line-height: 1;
+	cursor: pointer;
+	color: var(--dark-blue);
+}
+
+@media (max-width: 768px) {
+	header {
+		padding: 1rem 1.25rem;
+	}
+
+	header img {
+		width: 4rem;
+		height: 4rem;
+	}
+
+	header .contact-btn {
+		padding: 0.5rem 1rem;
+		font-size: 0.75rem;
+	}
+
+	.hero {
+		padding: 3rem 1.5rem;
+		text-align: center;
+	}
+
+	.hero h1,
+	.hero p {
+		max-width: none;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.hero h1 {
+		font-size: 3.125rem;
+	}
+
+	.hero p {
+		font-size: 1.25rem;
+		line-height: 1.5625rem;
+	}
+
+	.tools,
+	.team {
+		flex-direction: column;
+		align-items: center;
+		gap: 1.5rem;
+		padding: 1.5rem 1.5rem;
+		text-align: center;
+	}
+
+	.tools-text,
+	.team-text {
+		max-width: none;
+		margin-top: 0;
+	}
+
+	.tools-image {
+		order: -1;
+	}
+
+	.team-text {
+		order: -1;
+	}
+
+	.tools h2,
+	.team h2 {
+		font-size: 2.5rem;
+	}
+
+	.desktop-break {
+		display: none;
+	}
+
+	.tools p,
+	.team p {
+		font-size: 1.25rem;
+		line-height: 1.5625rem;
+	}
+
+	.tools-image img {
+		width: 100%;
+		max-width: 18.75rem;
+		margin: 0 auto;
+	}
+
+	.team-image {
+		width: 100%;
+		max-width: 16.25rem;
+	}
+
+	.cta {
+		height: auto;
+		padding: 3rem 1.5rem;
+		gap: 1.5rem;
+	}
+
+	.cta h2 {
+		font-size: 1.375rem;
+		line-height: 1.875rem;
+	}
+
+	.modal {
+		width: 18.75rem;
+		padding: 1.75rem;
+	}
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Landing Page</title>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+		<link rel="stylesheet" href="styles.css">
+	</head>
+
+	<body>
+		<div class="page-container">
+		<header>
+			<button type="button" class="logo-button">
+				<img src="assets/logo-blue-160x160-1.png" alt="EBQ logo">
+			</button>
+			<button type="button" class="contact-btn">Contact Us</button>
+		</header>
+
+		<section class="hero">
+			<h1>
+				Integrated
+				<br>
+				<strong>Marketing Services</strong>
+			</h1>
+			<p>We turn your marketing plans into action by building on your ideas and executing initiatives alongside you and your team. Get a complete department that can pivot to different areas of marketing based on your needs.</p>
+		</section>
+
+		<section class="tools-team">
+			<div class="tools">
+				<div class="tools-text">
+					<h2>We're experts with <strong>modern marketing tools,</strong> so you <br class="desktop-break">don't have to be!</h2>
+					<p>With hands-on experience in B2B's most innovative apps and tools, we take a data-driven approach to continually improve prospect engagement. Whether we work directly out of your platform or provide our insights manually, you always get full visibility into the process.</p>
+				</div>
+				<div class="tools-image">
+					<img src="assets/Marketing_Tools.svg" alt="Diagram of marketing tools and platforms used by EBQ">
+				</div>
+			</div>
+
+			<div class="team">
+				<div class="team-image">
+					<img src="assets/Complete-Department-Marketing.png" alt="Photos of EBQ's marketing department team members">
+				</div>
+				<div class="team-text">
+					<h2><strong>The best way</strong> to build a <br class="desktop-break">marketing team</h2>
+					<p>With EBQ, you're not just hiring a marketing specialist. You're getting an entire marketing department at a fraction of the cost and effort of hiring internally.</p>
+					<p>For each project, we provide: a Success Manager to drive high-level strategy, a Project Manager to oversee day-to-day operations, and one or more Specialists working diligently to amplify your brand.</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="cta">
+			<h2>Looking to take your <strong>marketing</strong> to the next level?</h2>
+			<button type="button" class="contact-btn">Contact Us</button>
+		</section>
+		</div>
+
+		<div class="modal-overlay" id="contact-modal">
+			<div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+				<button class="modal-close" type="button" aria-label="Close contact form">&times;</button>
+				<h2 id="modal-title">Contact Us</h2>
+				<form>
+					<label class="sr-only" for="modal-first-name">First Name</label>
+					<input id="modal-first-name" type="text" placeholder="First Name">
+
+					<label class="sr-only" for="modal-last-name">Last Name</label>
+					<input id="modal-last-name" type="text" placeholder="Last Name">
+
+					<label class="sr-only" for="modal-email">Email</label>
+					<input id="modal-email" type="email" placeholder="Email">
+
+					<label class="sr-only" for="modal-phone">Phone</label>
+					<input id="modal-phone" type="tel" placeholder="Phone">
+
+					<button type="submit">Submit</button>
+				</form>
+			</div>
+		</div>
+
+		<script>
+			var modal = document.getElementById('contact-modal');
+			var modalPanel = document.querySelector('.modal');
+			var openButtons = document.querySelectorAll('.contact-btn');
+			var closeButton = document.querySelector('.modal-close');
+			var firstInput = document.querySelector('.modal input');
+			var form = document.querySelector('.modal form');
+			var lastFocusedButton = null;
+
+			function getFocusableElements() {
+				return modalPanel.querySelectorAll('button, input');
+			}
+
+			function openModal(triggerButton) {
+				lastFocusedButton = triggerButton;
+				modal.classList.add('active');
+				document.body.style.overflow = 'hidden';
+				firstInput.focus();
+			}
+
+			function closeModal() {
+				modal.classList.remove('active');
+				document.body.style.overflow = '';
+				if (lastFocusedButton) {
+					lastFocusedButton.focus();
+				}
+			}
+
+			openButtons.forEach(function (button) {
+				button.addEventListener('click', function () {
+					openModal(button);
+				});
+			});
+
+			closeButton.addEventListener('click', closeModal);
+
+			modal.addEventListener('click', function (event) {
+				if (event.target === modal) {
+					closeModal();
+				}
+			});
+
+			document.addEventListener('keydown', function (event) {
+				if (!modal.classList.contains('active')) {
+					return;
+				}
+
+				if (event.key === 'Escape') {
+					closeModal();
+					return;
+				}
+
+				if (event.key === 'Tab') {
+					var focusable = getFocusableElements();
+					var first = focusable[0];
+					var last = focusable[focusable.length - 1];
+
+					if (event.shiftKey && document.activeElement === first) {
+						event.preventDefault();
+						last.focus();
+					} else if (!event.shiftKey && document.activeElement === last) {
+						event.preventDefault();
+						first.focus();
+					}
+				}
+			});
+
+			// Fake submit handler — in production this would POST to a real API endpoint
+			form.addEventListener('submit', function (event) {
+				event.preventDefault();
+				closeModal();
+				form.reset();
+			});
+		</script>
+	</body>
+</html>
